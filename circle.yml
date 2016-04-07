@@ -1,0 +1,9 @@
+dependencies:
+  pre:
+    - pyenv local 2.7.10 3.5.0
+  override:
+    - python setup.py install
+
+test:
+  override:
+    - python setup.py test
