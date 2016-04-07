@@ -1,6 +1,12 @@
+from __future__ import unicode_literals
 import datetime
-from urlparse import urljoin
+try:
+  from urlparse import urljoin
+except ImportError:
+  # python 3:
+  from urllib.parse import urljoin
 
+import six
 import requests
 import pyrfc3339
 
@@ -8,12 +14,12 @@ def _decode_timestamps(obj):
   """Checks `obj` to see if it looks like a timestamp string, and if so
   decode it into a datetime.datetime object
   """
-  for k, v in obj.iteritems():
+  for k, v in six.iteritems(obj):
     if isinstance(v, dict):
       # recurse
       obj[k] = _decode_timestamps(v)
     else:
-      if isinstance(v, (unicode, str)) and v.endswith('Z'):
+      if isinstance(v, six.string_types) and v.endswith('Z'):
         try:
           obj[k] = pyrfc3339.parse(v, produce_naive=True)
         except ValueError:
