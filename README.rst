@@ -38,23 +38,3 @@ Basic Usage
 
 
 .. TODO: embed the resulting image here
-
-
-
-Running tests
--------------
-
-.. code-block:: bash
-
-    $ pip install -r requirements.txt
-    $ pip install -r requirements-dev.txt
-    $ py.test
-
-To run the tests against multiple versions of python:
-
-.. code-block:: bash
-
-    $ python setup.py test
-
-You will need to have each of the tested versions of python installed on your
-system.
