@@ -41,11 +41,11 @@ class Tox(TestCommand):
 
 
 setup(
-  name='handwriting',
+  name='handwritingio',
   version='0.0.1',
   description='Handwriting.io API client.',
   long_description=readme,
-  packages=['handwriting'],
+  packages=['handwritingio'],
   install_requires=requirements,
   tests_require=['tox'],
   cmdclass = {'test': Tox},

@@ -6,9 +6,10 @@ except ImportError:
   # python 3:
   from urllib.parse import urljoin
 
-import six
-import requests
 import pyrfc3339
+import requests
+import six
+
 
 def _decode_timestamps(obj):
   """Checks `obj` to see if it looks like a timestamp string, and if so

@@ -1,11 +1,11 @@
 import datetime
 
-import handwriting
+import handwritingio
 
 
 def test_decode_timestamps():
   obj = {'time': '2006-01-02T15:04:05.000007000Z'}
-  decoded = handwriting._decode_timestamps(obj)
+  decoded = handwritingio._decode_timestamps(obj)
   assert isinstance(decoded['time'], datetime.datetime)
   assert decoded['time'].month == 1
   assert decoded['time'].day == 2
@@ -18,7 +18,7 @@ def test_decode_timestamps():
 
 def test_decode_timestamps_deep():
   obj = {'foo': {'time': '2006-01-02T15:04:05.000007000Z'}}
-  decoded = handwriting._decode_timestamps(obj)
+  decoded = handwritingio._decode_timestamps(obj)
   assert isinstance(decoded['foo']['time'], datetime.datetime)
 
 

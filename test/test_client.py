@@ -1,6 +1,3 @@
-import handwriting
-
-
 def test_list_handwritings(client):
   hws = client.list_handwritings()
   assert hws
