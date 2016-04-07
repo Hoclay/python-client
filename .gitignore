@@ -4,3 +4,4 @@
 .eggs
 .cache
 *.swp
+.tox
