@@ -1,6 +1,9 @@
 dependencies:
   pre:
-    - pyenv local 2.7.10 3.5.0
+    - pyenv install 2.7.11
+    - pyenv install 3.4.4
+    - pyenv install 3.5.1
+    - pyenv global 2.7.11 3.4.4 3.5.1
   override:
     - python setup.py install
 
