@@ -9,7 +9,7 @@ the test. This assumes that the API is running locally:
 
     $ pip install -r requirements.txt
     $ pip install -r requirements-dev.txt
-    $ py.test
+    $ py.test -v
 
 
 If you need to run the tests against a different API server, you will need to
@@ -17,7 +17,7 @@ provide a URL and credentials as environment variables:
 
 .. code-block:: bash
 
-    $ API_URL=https://api.handwriting.io API_KEY=123456 API_SECRET=ABCDEF py.test
+    $ API_URL=https://api.handwriting.io API_KEY=123456 API_SECRET=ABCDEF py.test -v
 
 
 To run the full set of tests against multiple versions of Python, the project
