@@ -17,7 +17,7 @@ def test_list_handwritings_validation(client):
   with pytest.raises(handwritingio.ValidationError) as exc_info:
     client.list_handwritings({'order_by': 'rating_friendliness'})
   # The exception should at least say what field has the problem:
-  assert 'order_by' in exc_info.value.message
+  assert 'order_by' in repr(exc_info.value)
 
 
 def test_get_handwriting(client, test_handwriting):
@@ -28,7 +28,7 @@ def test_get_handwriting(client, test_handwriting):
 def test_get_handwriting_not_found(client):
   with pytest.raises(handwritingio.APIError) as exc_info:
     client.get_handwriting('made_up_id')
-  assert 'not found' in exc_info.value.message
+  assert 'not found' in repr(exc_info.value)
 
 
 def test_render_png(client, test_handwriting):
@@ -46,7 +46,7 @@ def test_render_png_missing_text(client, test_handwriting):
         'handwriting_id': test_handwriting['id'],
         # missing text
     })
-  assert 'text' in exc_info.value.message
+  assert 'text' in repr(exc_info.value)
 
 
 def test_render_png_made_up_hw(client):
@@ -55,7 +55,7 @@ def test_render_png_made_up_hw(client):
         'handwriting_id': 'made_up_id',
         'text': 'foo',
     })
-  assert 'handwriting_id' in exc_info.value.message
+  assert 'handwriting_id' in repr(exc_info.value)
 
 
 def test_render_png_param_validation(client, test_handwriting):
@@ -65,7 +65,7 @@ def test_render_png_param_validation(client, test_handwriting):
         'text': 'trying to make a CMYK PNG',
         'handwriting_color': '(0, 0.1, 0.1, 0.8)',
     })
-  assert 'handwriting_color' in exc_info.value.message
+  assert 'handwriting_color' in repr(exc_info.value)
 
 
 def test_render_png_multiple_errors(client):
