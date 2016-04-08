@@ -1,0 +1,10 @@
+*.egg
+*.eggs
+*.egg-info
+.cache
+.eggs
+.tox
+**/*.pyc
+test/__pycache__
+Makefile
+Dockerfile
