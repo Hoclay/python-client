@@ -1,9 +1,12 @@
 IMAGE_NAME = handwriting-python
 API_URL = http://$(shell docker-machine ip $(DOCKER_MACHINE_NAME)):3000
+API_KEY = dev
+API_SECRET = dev
+RUN_ENV = -e API_URL=$(API_URL) -e API_KEY=$(API_KEY) -e API_SECRET=$(API_SECRET)
 
 .PHONY: test
 test: image
-	docker run --rm -e API_URL=$(API_URL) $(IMAGE_NAME) python setup.py test
+	docker run --rm $(RUN_ENV) $(IMAGE_NAME) python setup.py test
 
 .PHONY: image
 image:
