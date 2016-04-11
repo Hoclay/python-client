@@ -1,4 +1,4 @@
-IMAGE_NAME = handwriting-python
+IMAGE_NAME = handwritingio-python-client
 API_URL = http://$(shell docker-machine ip $(DOCKER_MACHINE_NAME)):3000
 API_KEY = dev
 API_SECRET = dev
