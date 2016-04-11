@@ -3,6 +3,7 @@ dependencies:
     - pyenv install 2.7.11
     - pyenv install 3.4.4
     - pyenv install 3.5.1
+    - pip install tox-pyenv
     - pyenv global 2.7.11 3.4.4 3.5.1
   override:
     - python setup.py install
