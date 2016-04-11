@@ -13,7 +13,7 @@ Code Status
 
 
 Installation
------------
+------------
 
 .. code-block:: bash
 
