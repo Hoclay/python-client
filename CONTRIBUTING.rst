@@ -7,7 +7,7 @@ the test. This assumes that the API is running locally:
 
 .. code-block:: bash
 
-    $ pip install -r requirements.txt
+    $ pip install -e .
     $ pip install -r requirements-dev.txt
     $ py.test -v
 
