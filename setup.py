@@ -17,6 +17,16 @@ with open('requirements.txt', 'r') as f:
 with open('requirements-dev.txt', 'r') as f:
   test_requirements = [strip_requirement(x) for x in f if strip_requirement(x)]
 
+# We can't just import the module and pull out __version__, because the module
+# won't be installed yet *while* this is being installed.
+with open('handwritingio/version.py', 'r') as f:
+  version = 'unknown'
+  for line in f:
+    line = line.strip()
+    if line.startswith('__version__ = '):
+      version = line.lstrip('__version__ = ').strip("'").strip('"')
+      break
+
 
 class Tox(TestCommand):
   user_options = [('tox-args=', 'a', "Arguments to pass to tox")]
@@ -43,7 +53,7 @@ class Tox(TestCommand):
 
 setup(
   name='handwritingio',
-  version='0.0.1',
+  version=version,
   description='Handwriting.io API client.',
   long_description=readme,
   author='Handwriting.io',

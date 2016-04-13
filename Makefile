@@ -14,5 +14,5 @@ image:
 
 .PHONY: clean
 clean:
-	rm -rvf ./*.egg ./*.eggs ./*.egg-info .cache .eggs .tox
+	rm -rvf ./*.egg ./*.eggs ./*.egg-info .cache .eggs .tox dist
 	rm -rvf test/*.pyc test/__pycache__ handwritingio/*.pyc

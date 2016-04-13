@@ -10,6 +10,8 @@ import pyrfc3339
 import requests
 import six
 
+from handwritingio.version import __version__
+
 
 def _decode_timestamps(obj):
   """Checks `obj` to see if it looks like a timestamp string, and if so
@@ -89,6 +91,9 @@ class Client(object):
     """
     request_kwargs = {
       'timeout': 10, # Default timeout in seconds
+      'headers': {
+        'User-Agent': 'handwritingio-python-client/%s' % __version__,
+      }
     }
     request_kwargs.update(kwargs)
     url = urljoin(self.base_url, url)
