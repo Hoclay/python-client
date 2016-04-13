@@ -1,13 +1,6 @@
 Handwriting.io Python Client
 ============================
 
-.. image:: http://handwriting.io/images/hwio_logo_black.png
-    :target: https://handwriting.io
-
-
-Code Status
------------
-
 .. image:: https://circleci.com/gh/handwritingio/python-client.svg?style=svg&circle-token=4526b4c3cf9d8fb76b63f7f706233d8af6b80a39
     :target: https://circleci.com/gh/handwritingio/python-client
 
