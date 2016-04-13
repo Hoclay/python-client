@@ -6,7 +6,7 @@ RUN_ENV = -e API_URL=$(API_URL) -e API_KEY=$(API_KEY) -e API_SECRET=$(API_SECRET
 
 .PHONY: test
 test: image
-	docker run --rm $(RUN_ENV) $(IMAGE_NAME) python setup.py test
+	docker run --rm $(RUN_ENV) $(IMAGE_NAME) tox
 
 .PHONY: image
 image:

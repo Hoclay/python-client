@@ -11,15 +11,12 @@ If you'd like to make changes to this code, please submit a Pull Request.
 Running tests
 -------------
 
-To quickly run the tests against your installed Python version, use ``py.test``.
-First, install the requirements (inside a virtualenv is recommended), then run
-the test. This assumes that the API is running locally:
+To quickly run the tests against your installed Python version, use the test
+command from ``setup.py``. This assumes that the API is running locally.
 
 .. code-block:: bash
 
-    $ pip install -e .
-    $ pip install -r requirements-dev.txt
-    $ py.test -v
+    $ python setup.py test
 
 
 If you need to run the tests against a different API server, you will need to
@@ -27,7 +24,7 @@ provide a URL and credentials as environment variables:
 
 .. code-block:: bash
 
-    $ API_URL=https://api.handwriting.io API_KEY=123456 API_SECRET=ABCDEF py.test -v
+    $ API_URL=https://api.handwriting.io API_KEY=123456 API_SECRET=ABCDEF python setup.py test
 
 
 To run the full set of tests against multiple versions of Python, the project

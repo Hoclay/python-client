@@ -8,8 +8,8 @@ dependencies:
     - pip install tox-pyenv
     - pyenv global 2.7.11 3.4.4 3.5.1
   override:
-    - python setup.py install
+    - pip install tox
 
 test:
   override:
-    - python setup.py test
+    - tox
