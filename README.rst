@@ -13,17 +13,18 @@ Installation
     $ pip install handwritingio
 
 
-Basic Usage
------------
+Basic Example
+-------------
+
+Set up the client, render an image, and write it to a file:
 
 .. code-block:: python
 
     import handwritingio
 
     hwio = handwritingio.Client('KEY', 'SECRET')
-    handwritings = hwio.list_handwritings()
     image = hwio.render_png({
-      'handwriting_id': handwritings[0]['id'],
+      'handwriting_id': '2D5S46A80003', # found in our catalog or by listing handwritings
       'text': 'Handwriting with Python!',
       'height': 'auto',
     })
@@ -33,6 +34,9 @@ Basic Usage
 If all goes well, this should create an image similar to the following:
 
 .. image:: https://d2igm8ue20pook.cloudfront.net/python-client-example.png
+
+
+.. TODO: advanced examples: list handwritings (with params)
 
 
 Reference
