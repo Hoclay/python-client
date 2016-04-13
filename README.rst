@@ -2,7 +2,7 @@ Handwriting.io Python Client
 ============================
 
 .. image:: http://handwriting.io/images/hwio_logo_black.png
-        :target: https://handwriting.io
+    :target: https://handwriting.io
 
 
 Code Status
@@ -31,13 +31,15 @@ Basic Usage
     handwritings = hwio.list_handwritings()
     image = hwio.render_png({
       'handwriting_id': handwritings[0]['id'],
-      'text': 'Handwriting with Python!'
+      'text': 'Handwriting with Python!',
+      'height': 'auto',
     })
     with open('handwriting.png', 'wb') as f:
       f.write(image)
 
+If all goes well, this should create an image similar to the following:
 
-.. TODO: embed the resulting image here
+.. image:: https://d2igm8ue20pook.cloudfront.net/python-client-example.png
 
 
 Issues
