@@ -72,6 +72,9 @@ def _message_from_response(response):
 
 
 class Client(object):
+  """Client object for interacting with the Handwriting.io API.
+  """
+
   def __init__(self, key, secret, base_url='https://api.handwriting.io/'):
     self.session = requests.Session()
     self.session.auth = (key, secret)

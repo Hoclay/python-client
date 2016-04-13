@@ -42,6 +42,21 @@ If all goes well, this should create an image similar to the following:
 .. image:: https://d2igm8ue20pook.cloudfront.net/python-client-example.png
 
 
+Reference
+---------
+
+See the `API Documentation <https://handwriting.io/docs/>`_ for details on
+all endpoints and parameters. For the most part, the ``Client`` passes the
+parameters through to the API directly.
+
+The endpoints map to client methods as follows:
+
+- `GET /handwritings <https://handwriting.io/docs/#get-handwritings>`_ -> ``Client.list_handwritings([params])``
+- `GET /handwritings/{id} <https://handwriting.io/docs/#get-handwritings--id->`_ -> ``Client.get_handwriting(handwriting_id)``
+- `GET /render/png <https://handwriting.io/docs/#get-render-png>`_ -> ``Client.render_png(params)``
+- `GET /render/pdf <https://handwriting.io/docs/#get-render-pdf>`_ -> ``Client.render_pdf(params)``
+
+
 Issues
 ------
 
