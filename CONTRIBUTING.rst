@@ -1,3 +1,13 @@
+Contributing
+============
+
+Please open an issue on `Github <https://github.com/handwritingio/python-client>`_
+or `contact us <https://handwriting.io/contact>`_ directly for help with any
+problems you find.
+
+If you'd like to make changes to this code, please submit a Pull Request.
+
+
 Running tests
 -------------
 

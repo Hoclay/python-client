@@ -31,10 +31,18 @@ Basic Usage
     handwritings = hwio.list_handwritings()
     image = hwio.render_png({
       'handwriting_id': handwritings[0]['id'],
-      'text': 'Handwriting with python!'
+      'text': 'Handwriting with Python!'
     })
     with open('handwriting.png', 'wb') as f:
       f.write(image)
 
 
 .. TODO: embed the resulting image here
+
+
+Issues
+------
+
+Please open an issue on `Github <https://github.com/handwritingio/python-client>`_
+or `contact us <https://handwriting.io/contact>`_ directly for help with any
+problems you find.

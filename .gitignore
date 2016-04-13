@@ -5,3 +5,5 @@
 .cache
 *.swp
 .tox
+dist
+test/__pycache__
