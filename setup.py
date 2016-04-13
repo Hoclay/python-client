@@ -4,6 +4,7 @@ from setuptools.command.test import test as TestCommand
 with open('README.rst', 'r') as f:
   readme = f.read()
 
+
 def strip_requirement(line):
   # skip blank lines or comments
   if not line or line.startswith('#'):
@@ -51,6 +52,7 @@ setup(
   classifiers=(
     'Intended Audience :: Developers',
     'Natural Language :: English',
+    'License :: OSI Approved :: MIT License',
     'Programming Language :: Python',
     'Programming Language :: Python :: 2.7',
     'Programming Language :: Python :: 3',
@@ -58,6 +60,7 @@ setup(
     'Programming Language :: Python :: 3.5',
   ),
   packages=['handwritingio'],
+  license='MIT License',
   install_requires=requirements,
   tests_require=['tox'],
   cmdclass = {'test': Tox},
