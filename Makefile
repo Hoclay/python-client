@@ -12,6 +12,10 @@ test: image
 image:
 	docker build -t $(IMAGE_NAME) .
 
+.PHONY: publish
+publish:
+	python setup.py sdist upload
+
 .PHONY: clean
 clean:
 	rm -rvf ./*.egg ./*.eggs ./*.egg-info .cache .eggs .tox dist
