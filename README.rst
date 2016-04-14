@@ -1,8 +1,15 @@
 Handwriting.io Python Client
 ============================
 
-.. image:: https://circleci.com/gh/handwritingio/python-client.svg?style=svg&circle-token=4526b4c3cf9d8fb76b63f7f706233d8af6b80a39
+.. image:: https://img.shields.io/circleci/project/handwritingio/python-client.svg
     :target: https://circleci.com/gh/handwritingio/python-client
+
+.. image:: https://img.shields.io/pypi/v/handwritingio.svg
+    :target: https://pypi.python.org/pypi/handwritingio
+
+.. image:: https://img.shields.io/pypi/pyversions/handwritingio.svg
+
+.. image:: https://img.shields.io/pypi/l/handwritingio.svg
 
 
 Installation
@@ -180,6 +187,22 @@ The endpoints map to client methods as follows:
 - `GET /handwritings/{id} <https://handwriting.io/docs/#get-handwritings--id->`_ -> ``Client.get_handwriting(handwriting_id)``
 - `GET /render/png <https://handwriting.io/docs/#get-render-png>`_ -> ``Client.render_png(params)``
 - `GET /render/pdf <https://handwriting.io/docs/#get-render-pdf>`_ -> ``Client.render_pdf(params)``
+
+Version Numbers
+---------------
+
+Version numbers for this package work slightly differently than standard
+`semantic versioning <http://semver.org/>`_. For this package, the ``major``
+version number will match the Handwriting.io API version number, and the
+``minor`` version will be  incremented for any breaking changes to this package.
+The ``patch`` version will be incremented for bug fixes and changes that add
+functionality only.
+
+For this reason, we recommend that you pin this dependency to the
+**minor version**, for example, in your ``requirements.txt`` or ``setup.py``,
+use::
+
+    handwritingio>=1.0<1.1
 
 
 Issues
