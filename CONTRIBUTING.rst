@@ -48,3 +48,10 @@ the entire set of tests will run on each version of Python configured, so this
 can be somewhat slow. For fast iteration, the ``py.test`` method will probably
 work best, but make sure to run the full suite occasionally to check that your
 changes are compatible.
+
+
+Code Style
+----------
+
+Please follow the `PEP-8 <https://www.python.org/dev/peps/pep-0008/>`_ style
+guide with one exception: indent with two spaces.
