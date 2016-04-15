@@ -8,3 +8,5 @@
 test/__pycache__
 Makefile
 Dockerfile
+dist
+build
