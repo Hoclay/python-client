@@ -23,18 +23,36 @@ Installation
 Basic Example
 -------------
 
-Set up the client, render an image, and write it to a file:
+Before getting started, you'll need to register for a free account at
+`Handwriting.io <https://handwriting.io>`_. You'll then be able to create
+`access tokens <https://handwriting.io/account/tokens/>`_, including free test
+tokens.
+
+While you're there, browse through the
+`handwriting catalog <https://handwriting.io/handwriting-catalog/>`_, play with
+the `live demo <https://handwriting.io/demo/>`_, and read the
+`documentation <https://handwriting.io/docs/>`_.
+
+Back in Python, create a handwritten message:
 
 .. code-block:: python
 
     import handwritingio
 
+    # Set up the client with your access token:
     hwio = handwritingio.Client('KEY', 'SECRET')
+
+    # Render an image:
     png = hwio.render_png({
-      'handwriting_id': '2D5S46A80003', # found in our catalog or by listing handwritings
       'text': 'Handwriting with Python!',
+      # Found in the catalog (https://handwriting.io/handwriting-catalog/2D5S46A80003/)
+      # or by listing handwritings:
+      'handwriting_id': '2D5S46A80003',
+      # See https://handwriting.io/docs/#dimensions:
       'height': 'auto',
     })
+
+    # Write the image to a file:
     with open('handwriting.png', 'wb') as f:
       f.write(png)
 
@@ -94,8 +112,11 @@ Render a PNG and manipulate it with `PIL <http://pillow.readthedocs.org/en/lates
 
     hwio = handwritingio.Client('KEY', 'SECRET')
     png = hwio.render_png({
-      'handwriting_id': '2D5S46A80003', # found in our catalog or by listing handwritings
       'text': 'Handwriting with Python!',
+      # Found in the catalog (https://handwriting.io/handwriting-catalog/2D5S46A80003/)
+      # or by listing handwritings:
+      'handwriting_id': '2D5S46A80003',
+      # See https://handwriting.io/docs/#dimensions:
       'height': 'auto',
     })
     # Image expects a file-like object, so wrap the image in StringIO:
@@ -117,9 +138,13 @@ Render a PDF, with a CMYK color for the text:
 
     hwio = handwritingio.Client('KEY', 'SECRET')
     pdf = hwio.render_pdf({
-      'handwriting_id': '2D5S46A80003', # found in our catalog or by listing handwritings
       'text': 'Handwriting with Python!',
+      # Found in the catalog (https://handwriting.io/handwriting-catalog/2D5S46A80003/)
+      # or by listing handwritings:
+      'handwriting_id': '2D5S46A80003',
+      # See https://handwriting.io/docs/#dimensions:
       'height': 'auto',
+      # See https://handwriting.io/docs/#handwriting-color:
       'handwriting_color': '(1, 0.5, 0, 0.2)',
     })
     with open('handwriting.pdf', 'wb') as f:
@@ -133,8 +158,11 @@ If something goes wrong with a request, an exception will be raised:
 
     hwio = handwritingio.Client('KEY', 'SECRET')
     pdf = hwio.render_pdf({
-      'handwriting_id': '2D5S46A80003',
       'text': 'Handwriting with Python!',
+      # Found in the catalog (https://handwriting.io/handwriting-catalog/2D5S46A80003/)
+      # or by listing handwritings:
+      'handwriting_id': '2D5S46A80003',
+      # See https://handwriting.io/docs/#dimensions:
       'height': 'auto',
       'handwriting_color': 'cheesecake',
       'width': 'double wide',
@@ -159,8 +187,11 @@ errors by catching the exception and inspecting the ``errors`` attribute:
     hwio = handwritingio.Client('KEY', 'SECRET')
     try:
       pdf = hwio.render_pdf({
-        'handwriting_id': '2D5S46A80003',
         'text': 'Handwriting with Python!',
+        # Found in the catalog (https://handwriting.io/handwriting-catalog/2D5S46A80003/)
+        # or by listing handwritings:
+        'handwriting_id': '2D5S46A80003',
+        # See https://handwriting.io/docs/#dimensions:
         'height': 'auto',
         'handwriting_color': 'cheesecake',
         'width': 'double wide',
@@ -188,6 +219,7 @@ The endpoints map to client methods as follows:
 - `GET /render/png <https://handwriting.io/docs/#get-render-png>`_ -> ``Client.render_png(params)``
 - `GET /render/pdf <https://handwriting.io/docs/#get-render-pdf>`_ -> ``Client.render_pdf(params)``
 
+
 Version Numbers
 ---------------
 
@@ -202,7 +234,7 @@ For this reason, we recommend that you pin this dependency to the
 **minor version**, for example, in your ``requirements.txt`` or ``setup.py``,
 use::
 
-    handwritingio>=1.0<1.1
+    handwritingio>=1.0,<1.1
 
 
 Issues
