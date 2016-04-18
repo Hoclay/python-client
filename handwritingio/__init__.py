@@ -80,6 +80,9 @@ class Client(object):
   def __init__(self, key, secret, base_url='https://api.handwriting.io/'):
     self.session = requests.Session()
     self.session.auth = (key, secret)
+    self.session.headers.update({
+      'User-Agent': 'handwritingio-python-client/%s' % __version__,
+    })
     self.base_url = base_url
 
   def _hit(self, method, url, **kwargs):
@@ -91,9 +94,6 @@ class Client(object):
     """
     request_kwargs = {
       'timeout': 10, # Default timeout in seconds
-      'headers': {
-        'User-Agent': 'handwritingio-python-client/%s' % __version__,
-      }
     }
     request_kwargs.update(kwargs)
     url = urljoin(self.base_url, url)
