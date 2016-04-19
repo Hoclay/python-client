@@ -237,6 +237,30 @@ use::
     handwritingio>=1.0,<1.1
 
 
+uWSGI Compatibility
+-------------------
+
+If your application uses `uWSGI <http://uwsgi-docs.readthedocs.org/en/latest/>`_
+in "preforking" mode, beware of issues with sharing a global
+``handwritingio.Client`` across forked processes. To avoid problems, make sure
+that each worker process instantiates its own ``handwritingio.Client`` instance.
+One way to do this is to run a
+`postfork hook <http://uwsgi-docs.readthedocs.org/en/latest/PythonDecorators.html#uwsgidecorators.postfork>`_,
+which can be done by including code similar to this:
+
+.. code-block:: python
+
+    import handwritingio
+    import uwsgidecorators
+
+    client = handwritingio.Client(API_KEY, API_SECRET)
+
+    @uwsgidecorators.postfork
+    def refresh_client():
+      global client
+      client = handwritingio.Client(API_KEY, API_SECRET)
+
+
 Issues
 ------
 
